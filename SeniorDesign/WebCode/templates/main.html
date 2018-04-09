@@ -1,0 +1,139 @@
+<html lang="en">
+ <head>
+ <title>Ajax Demo </title>
+ <style type="text/css" media="screen, print, projection">
+ body, html {
+ margin:0;
+ padding:0;
+ color:#000;
+ background:#a7a09a;
+ }
+ #wrap {
+ width:750px;
+ margin:0 auto;
+ background:#99c;
+ }
+ #header {
+ padding:5px 10px;
+ background:#ddd;
+ }
+ h1 {
+ margin:0;
+ }
+ #main {
+ float:left;
+ width:480px;
+ padding:10px;
+ background:#9c9;
+ }
+ h2 {
+ margin:0 0 1em;
+ }
+ #sidebar {
+ float:right;
+ width:230px;
+ padding:10px;
+ background:#99c;
+ }
+ #footer {
+ clear:both;
+ padding:5px 10px;
+ background:#cc9;
+ }
+ #footer p {
+ margin:0;
+ }
+ * html #footer {
+ height:10px;
+ }
+ </style>
+ <script type="text/javascript">
+ var ajaxReq;
+ var htm;
+ function Disp(url) {
+ try {
+ ajaxReq = new XMLHttpRequest();
+ } catch (e) {
+ alert("XMLHttpRequest didn't work!");
+ return;
+ }
+ ajaxReq.open("GET", url, true);
+ ajaxReq.send();
+ ajaxReq.onreadystatechange = callBack ;
+ }
+ function callBack () {
+ if (ajaxReq.readyState == 4) {
+ this.htm = ajaxReq.responseText;
+ }
+ document.getElementById("p1").innerHTML = this.htm;
+ }
+
+ </script>
+ </head>
+ <body>
+ <div id="wrap">
+ <div id="header"><h1>Ajax Demo</h1></div>
+ <div id="main">
+<p id="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris vel magna. Mauris
+risus nunc, tristique varius, gravida in, lacinia vel, elit. Nam ornare, felis non faucibus molestie, nulla
+augue adipiscing mauris, a nonummy diam ligula ut risus. Praesent varius. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<p id="p2">
+ Nulla dictum. Praesent turpis libero, pretium in, pretium ac, malesuada sed, ligula. Sed a urna
+eu ipsum luctus faucibus. Curabitur fringilla. Suspendisse sit amet quam. Sed vel pede id libero luctus
+fermentum. Vestibulum volutpat tempor lectus. Vivamus convallis tempus ante. Nullam adipiscing dui
+blandit ipsum. Nullam convallis lacus ut quam. Mauris semper elit at ante. Vivamus tristique.
+Pellentesque pharetra ante at pede. In ultrices arcu vitae purus. In rutrum, erat at mollis consequat, leo
+massa consequat libero, ac vestibulum libero tellus sed risus. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit.</p>
+ </div>
+ <div id="sidebar">
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris vel magna.</p>
+<ul>
+ <li> <button type="button" onclick="Disp('description.html')">Link1</button></li>
+ <li><a href="#" onclick="Disp('description2.html')">Link 2</a></li>
+ <li><a href="#" onclick="Disp('description3.html')">Link 3</a></li>
+</ul>
+ </div>
+ <div id="footer">
+ </div>
+ </div>
+ </body>
+</html>
+decription1.html
+<html>
+<head>
+</head>
+<body>
+<h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris vel magna. Mauris risus nunc,
+tristique varius, gravida in, lacinia vel, elit. Nam ornare, felis non faucibus molestie, nulla augue
+adipiscing mauris, a nonummy diam ligula ut risus. Praesent varius. Cum sociis natoque penatibus et
+magnis dis parturient montes, nascetur ridiculus mus.</h3>
+</body>
+</html>
+decription2.html
+<html>
+<head>
+</head>
+<body>
+<h3 style="background-color:#fdcd45">Nulla dictum. Praesent turpis libero, pretium in, pretium ac,
+malesuada sed, ligula. Sed a urna eu ipsum luctus faucibus. Curabitur fringilla. Suspendisse sit amet
+quam. Sed vel pede id libero luctus fermentum. Vestibulum volutpat tempor lectus. Vivamus convallis
+tempus ante. Nullam adipiscing dui blandit ipsum. Nullam convallis lacus ut quam. Mauris semper elit
+at ante. Vivamus tristique. Pellentesque pharetra ante at pede. In ultrices arcu vitae purus. In rutrum,
+erat at mollis </h3>
+</body>
+</html>
+decription3.html
+<html>
+<head>
+</head>
+<body>
+<h3 style="background-color:#34cdfd">Pellentesque pharetra ante at pede. In ultrices arcu vitae purus.
+In rutrum, erat at mollis consequat, leo massa consequat libero, ac vestibulum libero tellus sed risus.
+Lorem ipsum dolor sit amet, consectetuer adipiscing ligula. Sed a urna eu ipsum luctus faucibus.
+Curabitur fringilla. Suspendisse sit amet quam. Sed vel pede id libero luctus fermentum. Vestibulum
+volutpat tempor lectus. Vivamus convallis tempus ante. Nullam adipiscing dui blandit ipsum. Nullam
+convallis </h3>
+</body>
+</html>
